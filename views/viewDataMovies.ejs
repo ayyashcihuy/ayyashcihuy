@@ -1,0 +1,39 @@
+
+<%- include("partial/header", { title: "Production House"}) %>
+<div class="container mt-4">
+    <h1 align='center'>Production House</h1>
+    <a href="/">Home</a>
+    <a href="/prod-house">Production House</a>
+    <a href="/movies">Movies</a>
+    <a href="/casts">Casts</a>
+    <a href="/movies/add">Add Movies</a>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Movie</th>
+            <th scope="col">Released Year</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Production House</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(e => { %>
+                <tr>
+                    <td scope="row"><%= e.name %></td>
+                    <td scope="row"><%= e.released_year %></td>
+                    <td scope="row"><%= e.genre %></td>
+                    <% if(!e.ProductionHouseId) { %>
+                        <td scope="row">Unknown</td>
+                    <% } else { %> 
+                        <td scope="row"><%= e.ProductionHouse %></td>
+                    <% } %>                             
+                    <td scope="row">
+                        <a href="/movies/<%= e.id %>/edit" class="btn btn-primary">Edit</a>
+                        <a href="/movies/<%= e.id %>/delete" class="btn btn-primary">Delete</a>
+                    </td>  
+                </tr>
+           <% }) %>
+      </table>
+</div>
+<%- include("partial/footer") %>

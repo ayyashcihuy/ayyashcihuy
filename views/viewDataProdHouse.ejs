@@ -1,0 +1,26 @@
+
+<%- include("partial/header", { title: "Production House"}) %>
+<div class="container mt-4">
+    <h1 align='center'>Production House</h1>
+    <a href="/">Home</a>
+    <a href="/prod-house">Production House</a>
+    <a href="/movies">Movies</a>
+    <a href="/casts">Casts</a>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Headquarters</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(e => { %>
+                <tr>
+                    <td scope="row"><%= e.name_prodHouse %></td>
+                    <td scope="row"><%= e.headquarters %></td>
+                </tr>
+           <% }) %>
+      </table>
+</div>
+<%- include("partial/footer") %>
